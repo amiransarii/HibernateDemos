@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8'?>  
+<!DOCTYPE hibernate-mapping PUBLIC  
+          "-//Hibernate/Hibernate Mapping DTD 5.3//EN"  
+          "http://hibernate.sourceforge.net/hibernate-mapping-5.3.dtd">  
+  
+ <!--  In case of Table Per Concrete class, there will be three tables in the 
+  database having no relations to each other. There are two ways to map the table with table per concrete class strategy.
+By union-subclass element
+By self creating the table for each class -->
+
+  <hibernate-mapping>  
+  <class name="org.hibernate.entity.Employee" table="emp_ConcreateTable">  
+  <id name="id">  
+  <generator class="increment"></generator>  
+  </id>  
+           
+  <property name="firstName"></property>  
+  <property name="lastName"></property>  
+            
+  <union-subclass name="org.hibernate.entity.Regular_Employee" table="reg_ConcreateTable">  
+  <property name="salary"></property>  
+  <property name="bonous"></property>  
+  </union-subclass>  
+            
+  <union-subclass name="org.hibernate.entity.Contract_Employee" table="cont_ConcreateTable">  
+  <property name="pay_per_hour"></property>  
+  <property name="contract_duration"></property>  
+  </union-subclass>  
+            
+  </class>  
+            
+  </hibernate-mapping>  

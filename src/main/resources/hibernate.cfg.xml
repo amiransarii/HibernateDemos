@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8'?>  
+<!DOCTYPE hibernate-configuration PUBLIC  
+          "-//Hibernate/Hibernate Configuration DTD 5.3//EN"  
+          "http://hibernate.sourceforge.net/hibernate-configuration-5.3.dtd">  
+   
+<hibernate-configuration>  
+  
+    <session-factory>  
+       <!--  <property name="hbm2ddl.auto">update</property>  
+        <property name="dialect">org.hibernate.dialect.MySQL8Dialect</property>  
+        <property name="connection.url">jdbc:mysql://localhost/hibernate_demo?serverTimezone=UTC</property>  
+        <property name="connection.username">root</property>  
+        <property name="connection.password"></property>  
+        <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>  --> 
+        
+        <property name="hbm2ddl.auto">update</property>  
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQL8Dialect</property>  
+        <property name="hibernate.connection.url">jdbc:mysql://localhost/hibernate_demo?serverTimezone=UTC</property>  
+        <property name="hibernate.connection.username">root</property>  
+        <property name="hibernate.connection.password"></property>  
+        <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property> 
+        
+           <!-- insert employee record using xml -->
+      <mapping resource = "employee.hbm.xml"/>  
+    
+     <!-- insert employee record using annotation -->
+     <!--  <mapping class = "org.hibernate.entity.EmployeeAnnotation"/>   -->
+      
+      <!-- insert user record using web -->
+     <<!-- mapping class = "org.hibernate.entity.EmployeeAnnotation"/>   -->
+     
+      <!-- insert user record from  web -->
+     <!--  <mapping resource="user.hbm.xml"/>   -->
+      
+      <!-- Inherited Employee  -->
+        <!-- <mapping resource = "employee_inherited.hbm.xml"/>  -->
+        
+         <!-- Employee Inheritance Using Annotation  -->
+       <!--  <mapping class="org.hibernate.entity.EmployeeHierarchy"/>  
+        <mapping class="org.hibernate.entity.Regular_EmployeeHierarchy"/>  
+        <mapping class="org.hibernate.entity.Contract_EmployeeHierarchy"/>  
+         -->
+         <!-- Employee Concreate  -->
+        <!-- <mapping resource="employee_concreate.hbm.xml"/>   -->
+         
+       
+     
+    </session-factory>  
+  
+</hibernate-configuration>  
